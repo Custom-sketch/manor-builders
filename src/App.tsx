@@ -98,7 +98,7 @@ const TRADES = [
     details: "Precision concrete works including architectural driveways, pool surrounds, and structural house slabs.",
     icon: <Construction className="w-5 h-5 text-brand-accent" />,
     extendedDetails: "Solid foundations are non-negotiable. Our concreting team handles complex structural house slabs, architectural driveways, and decorative pool surrounds.\n\nWe offer a range of finishes including exposed aggregate, honed concrete, and stamped patterns, all engineered for structural longevity and aesthetic appeal.",
-    images: ["https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=800&auto=format&fit=crop"]
+    images: ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop"]
   },
   {
     title: "Plumbing",
@@ -112,7 +112,7 @@ const TRADES = [
     details: "Premium landscape design and construction. Creating outdoor living spaces that complement architectural excellence.",
     icon: <Trees className="w-5 h-5 text-brand-accent" />,
     extendedDetails: "Architecture should harmonize with nature. Our landscaping team creates resort-style outdoor environments that extend the luxury experience outside the home.\n\nFrom structural retaining walls and paving to automated irrigation and luxury planting schemes, we ensure your property's exterior is as impressive as its interior.",
-    images: ["https://images.unsplash.com/photo-1558905619-1af480bc134b?q=80&w=800&auto=format&fit=crop"]
+    images: ["https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop"]
   }
 ];
 
@@ -392,13 +392,13 @@ export default function App() {
 
       {/* Horizontal Search Navigation - Inspired by Meriton Screenshot */}
       <nav className="sticky top-0 z-50 bg-white shadow-md flex flex-col lg:flex-row items-stretch min-h-24">
-        <div className="flex items-stretch h-24 lg:h-auto border-b lg:border-b-0 border-gray-100">
+        <div className="flex items-stretch h-20 lg:h-auto border-b lg:border-b-0 border-gray-100">
           {/* Logo Section */}
-          <div className="bg-brand-primary w-24 sm:w-32 flex items-center justify-center shrink-0 h-full">
-             <div className="w-12 sm:w-14 h-12 sm:h-16 border-l-2 border-r-2 border-brand-accent flex items-center justify-center relative">
+          <div className="bg-brand-primary w-20 sm:w-32 flex items-center justify-center shrink-0 h-full">
+             <div className="w-10 sm:w-14 h-10 sm:h-16 border-l-2 border-r-2 border-brand-accent flex items-center justify-center relative">
                 <div className="absolute top-0 -left-1 w-[calc(100%+8px)] h-[2px] bg-brand-accent"></div>
                 <div className="absolute bottom-0 -left-1 w-[calc(100%+8px)] h-[2px] bg-brand-accent"></div>
-                <span className="text-brand-accent text-3xl sm:text-5xl font-display font-medium tracking-tighter -mb-1">M</span>
+                <span className="text-brand-accent text-2xl sm:text-5xl font-display font-medium tracking-tighter -mb-1">M</span>
              </div>
           </div>
 
@@ -432,15 +432,15 @@ export default function App() {
 
            {/* Property Type */}
            <div 
-             className="flex-1 min-w-[120px] sm:min-w-[200px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
+             className="flex-1 min-w-[110px] sm:min-w-[200px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
              onClick={(e) => {
                e.stopPropagation();
                setActiveDropdown(activeDropdown === 'type' ? null : 'type');
              }}
            >
-              <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Property</span>
+              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Property</span>
               <div className="flex items-center justify-between gap-1">
-                <span className="text-[10px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.type}</span>
+                <span className="text-[11px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.type}</span>
                 <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent transition-transform duration-500 ${activeDropdown === 'type' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
               </div>
 
@@ -477,15 +477,15 @@ export default function App() {
 
            {/* Looking To */}
            <div 
-             className="flex-1 min-w-[120px] sm:min-w-[200px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
+             className="flex-1 min-w-[110px] sm:min-w-[200px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
              onClick={(e) => {
                e.stopPropagation();
                setActiveDropdown(activeDropdown === 'lookingTo' ? null : 'lookingTo');
              }}
            >
-              <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Looking To</span>
+              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Looking To</span>
               <div className="flex items-center justify-between gap-1">
-                <span className="text-[10px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.lookingTo}</span>
+                <span className="text-[11px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.lookingTo}</span>
                 <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent transition-transform duration-500 ${activeDropdown === 'lookingTo' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
               </div>
 
@@ -522,17 +522,17 @@ export default function App() {
 
            {/* Location */}
            <div 
-             className="flex-1 min-w-[130px] sm:min-w-[240px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
+             className="flex-1 min-w-[110px] sm:min-w-[240px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
              onClick={(e) => {
                e.stopPropagation();
                setActiveDropdown(activeDropdown === 'location' ? null : 'location');
              }}
            >
-              <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Location</span>
+              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Location</span>
               <div className="flex items-center justify-between gap-1">
-                <div className="flex items-center gap-1.5 sm:gap-3">
+                <div className="flex items-center gap-1 sm:gap-3">
                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent" />
-                   <span className="text-[10px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.location}</span>
+                   <span className="text-[11px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.location}</span>
                 </div>
                 <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent transition-transform duration-500 ${activeDropdown === 'location' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
               </div>
@@ -668,14 +668,14 @@ export default function App() {
       </section>
 
       {/* Services & Trade Expertise Section */}
-      <section id="services" className="bg-white px-6 md:px-16 py-32 border-b border-gray-100 overflow-hidden scroll-mt-24">
+      <section id="services" className="bg-white px-4 sm:px-6 md:px-16 py-20 sm:py-32 border-b border-gray-100 overflow-hidden scroll-mt-24">
         <div className="container mx-auto">
-          <div className="max-w-4xl mb-20 text-center mx-auto">
+          <div className="max-w-4xl mb-12 sm:mb-20 text-center mx-auto">
             <span className="section-label mb-6 mx-auto">Specialist Trades</span>
-            <h2 className="text-5xl md:text-7xl font-display font-medium text-brand-primary leading-tight mb-8 uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-display font-medium text-brand-primary leading-tight mb-6 sm:mb-8 uppercase tracking-tight">
               Trade <span className="text-brand-accent italic font-serif">Expertise.</span>
             </h2>
-            <p className="text-xl text-brand-grey leading-relaxed font-light">
+            <p className="text-lg sm:text-xl text-brand-grey leading-relaxed font-light px-2 sm:px-0">
               Our workforce is comprised of dedicated artisans specializing in every vertical of construction. We maintain absolute control over quality by employing the finest master tradespeople in the industry.
             </p>
           </div>
@@ -689,7 +689,7 @@ export default function App() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setSelectedTrade(trade)}
-                className="group relative h-80 bg-brand-primary overflow-hidden flex flex-col items-center justify-center p-8 text-center transition-all duration-700"
+                className="group relative h-64 sm:h-80 bg-brand-primary overflow-hidden flex flex-col items-center justify-center p-6 sm:p-8 text-center transition-all duration-700"
               >
                 {/* Background overlay that moves on hover */}
                 <div className="absolute inset-0 bg-neutral-900 transition-all duration-700 opacity-60 group-hover:opacity-40"></div>
@@ -736,67 +736,67 @@ export default function App() {
             />
             
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 30 }}
-              className="relative w-full max-w-6xl h-full max-h-[85vh] bg-neutral-900 border border-white/5 flex flex-col md:flex-row overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)]"
-            >
-               <button 
-                 onClick={() => setSelectedTrade(null)}
-                 className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-2xl"
-               >
-                 <X className="w-6 h-6" />
-               </button>
-
-               {/* Design Detail Side */}
-               <div className="w-full md:w-1/3 h-64 md:h-full bg-neutral-800 relative overflow-hidden flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/5">
-                  <div className="absolute inset-0 opacity-20 pointer-events-none">
-                    <svg className="w-full h-full" viewBox="0 0 100 100">
-                      <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
-                      </pattern>
-                      <rect width="100" height="100" fill="url(#grid)" />
-                    </svg>
-                  </div>
-                  <div className="relative z-10 text-center px-8">
-                     <div className="w-24 h-24 bg-brand-accent flex items-center justify-center text-brand-primary mx-auto mb-8 shadow-[0_0_30px_rgba(170,140,93,0.3)]">
-                        {selectedTrade.icon && <div className="scale-[2]">{selectedTrade.icon}</div>}
-                     </div>
-                     <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent mb-4 block">Master Trade</span>
-                     <h2 className="text-4xl font-display font-medium text-white uppercase tracking-tight leading-none mb-4">
-                        {selectedTrade.title}
-                     </h2>
-                  </div>
-               </div>
-
-               {/* Content Side */}
-               <div className="w-full md:w-2/3 h-full overflow-y-auto no-scrollbar p-8 sm:p-16 flex flex-col">
-                  <div className="space-y-12">
-                    <div>
-                      <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-accent border-b border-white/10 pb-4 mb-6">Expertise Overview</h4>
-                      <p className="text-2xl text-blue-100/70 font-light leading-relaxed mb-8">
-                        {selectedTrade.details}
-                      </p>
-                    </div>
-
-                    {(selectedTrade as any).extendedDetails && (
-                      <div className="space-y-6">
-                        <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-accent border-b border-white/10 pb-4">Technical Depth</h4>
-                        <div className="text-base text-gray-400 leading-relaxed bg-white/[0.03] p-8 border-l border-brand-accent whitespace-pre-wrap font-light italic">
-                          {(selectedTrade as any).extendedDetails}
-                        </div>
+               initial={{ opacity: 0, scale: 0.9, y: 30 }}
+               animate={{ opacity: 1, scale: 1, y: 0 }}
+               exit={{ opacity: 0, scale: 0.9, y: 30 }}
+               className="relative w-full max-w-6xl h-full max-h-[90vh] sm:max-h-[85vh] bg-neutral-900 border border-white/5 flex flex-col md:flex-row overflow-hidden shadow-2xl"
+             >
+                <button 
+                  onClick={() => setSelectedTrade(null)}
+                  className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-2xl"
+                >
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                </button>
+ 
+                {/* Design Detail Side */}
+                <div className="w-full md:w-1/3 h-48 sm:h-64 md:h-full bg-neutral-800 relative overflow-hidden flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/5 shrink-0">
+                   <div className="absolute inset-0 opacity-20 pointer-events-none">
+                     <svg className="w-full h-full" viewBox="0 0 100 100">
+                       <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                         <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
+                       </pattern>
+                       <rect width="100" height="100" fill="url(#grid)" />
+                     </svg>
+                   </div>
+                   <div className="relative z-10 text-center px-6 sm:px-8">
+                      <div className="w-16 h-16 sm:w-24 sm:h-24 bg-brand-accent flex items-center justify-center text-brand-primary mx-auto mb-4 sm:mb-8 shadow-[0_0_30px_rgba(170,140,93,0.3)]">
+                         {selectedTrade.icon && <div className="scale-[1.5] sm:scale-[2]">{selectedTrade.icon}</div>}
                       </div>
-                    )}
-
-                    <div className="flex flex-wrap gap-4 pt-10">
-                       {['Certified Master Artisans', 'Sub-Millimeter Precision', 'Premium Grade Materials', 'Structural Lifetime Guarantee'].map(tag => (
-                         <span key={tag} className="px-5 py-3 bg-white/5 border border-white/10 text-[9px] uppercase font-bold tracking-widest text-brand-accent">
-                           {tag}
-                         </span>
-                       ))}
-                    </div>
-                  </div>
-               </div>
+                      <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.5em] text-brand-accent mb-2 sm:mb-4 block">Master Trade</span>
+                      <h2 className="text-2xl sm:text-4xl font-display font-medium text-white uppercase tracking-tight leading-none mb-2 sm:mb-4">
+                         {selectedTrade.title}
+                      </h2>
+                   </div>
+                </div>
+ 
+                {/* Content Side */}
+                <div className="w-full md:w-2/3 h-full overflow-y-auto no-scrollbar p-6 sm:p-16 flex flex-col">
+                   <div className="space-y-8 sm:space-y-12">
+                     <div>
+                       <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-brand-accent border-b border-white/10 pb-4 mb-4 sm:mb-6">Expertise Overview</h4>
+                       <p className="text-xl sm:text-2xl text-blue-100/70 font-light leading-relaxed mb-6 sm:mb-8">
+                         {selectedTrade.details}
+                       </p>
+                     </div>
+ 
+                     {(selectedTrade as any).extendedDetails && (
+                       <div className="space-y-4 sm:space-y-6">
+                         <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-brand-accent border-b border-white/10 pb-4">Technical Depth</h4>
+                         <div className="text-sm sm:text-base text-gray-400 leading-relaxed bg-white/[0.03] p-6 sm:p-8 border-l border-brand-accent whitespace-pre-wrap font-light italic">
+                           {(selectedTrade as any).extendedDetails}
+                         </div>
+                       </div>
+                     )}
+ 
+                     <div className="flex flex-wrap gap-2 sm:gap-4 pt-6 sm:pt-10">
+                        {['Certified Master Artisan', 'Precision Work', 'Premium Materials', 'Structural Guarantee'].map(tag => (
+                          <span key={tag} className="px-3 py-2 sm:px-5 sm:py-3 bg-white/5 border border-white/10 text-[8px] sm:text-[9px] uppercase font-bold tracking-widest text-brand-accent">
+                            {tag}
+                          </span>
+                        ))}
+                     </div>
+                   </div>
+                </div>
             </motion.div>
           </motion.div>
         )}
@@ -870,7 +870,7 @@ export default function App() {
               onClick={() => setSelectedCategory('ALL')}
               className="text-left group w-full"
             >
-              <h2 className="text-5xl sm:text-8xl md:text-[120px] font-display font-black text-white uppercase tracking-tighter leading-[0.85] group-hover:text-brand-accent transition-colors break-words">
+              <h2 className="text-4xl sm:text-8xl md:text-[120px] font-display font-black text-white uppercase tracking-tighter leading-[0.85] group-hover:text-brand-accent transition-colors break-words">
                 Modern <br /> Architecture
               </h2>
             </button>
@@ -968,105 +968,105 @@ export default function App() {
             />
             
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-7xl h-full max-h-[85vh] bg-neutral-900 border border-white/10 flex flex-col md:flex-row overflow-hidden shadow-2xl"
-            >
-               <button 
-                 onClick={() => setSelectedProject(null)}
-                 className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
-               >
-                 <X className="w-6 h-6" />
-               </button>
-
-               {/* Image Side */}
-               <div className="w-full md:w-1/2 h-64 md:h-full relative overflow-hidden">
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent md:bg-gradient-to-r" />
-               </div>
-
-               {/* Content Side */}
-               <div className="w-full md:w-1/2 h-full overflow-y-auto no-scrollbar p-8 sm:p-16 flex flex-col">
-                  <div className="mb-4">
-                     <span className="bg-brand-accent text-brand-primary px-4 py-1 text-[10px] font-bold uppercase tracking-widest leading-none inline-block mb-4">
-                        {selectedProject.category}
-                     </span>
-                     <h2 className="text-4xl sm:text-6xl font-display font-bold text-white uppercase tracking-tight leading-[0.9] mb-4">
-                        {selectedProject.title}
-                     </h2>
-                     <div className="flex items-center gap-2 text-brand-accent text-sm font-bold tracking-widest mb-10">
-                        <MapPin className="w-4 h-4" />
-                        <span>{selectedProject.location}</span>
-                     </div>
-                  </div>
-
-                  {/* Specs Box */}
-                  <div className="grid grid-cols-3 gap-1 p-1 bg-white/5 border border-white/10 mb-12">
-                     <div className="p-6 bg-neutral-800/50 flex flex-col items-center justify-center">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-4">Bedrooms</span>
-                        <div className="flex items-center gap-3">
-                           <Home className="w-5 h-5 text-brand-accent" />
-                           <span className="text-2xl font-display font-medium text-white">{selectedProject.specs.beds}</span>
-                        </div>
-                     </div>
-                     <div className="p-6 bg-neutral-800/50 flex flex-col items-center justify-center">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-4">Bathrooms</span>
-                        <div className="flex items-center gap-3">
-                           <Droplets className="w-5 h-5 text-brand-accent" />
-                           <span className="text-2xl font-display font-medium text-white">{selectedProject.specs.baths}</span>
-                        </div>
-                     </div>
-                     <div className="p-6 bg-neutral-800/50 flex flex-col items-center justify-center">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-4">Car Spaces</span>
-                        <div className="flex items-center gap-3">
-                           <Grid2X2 className="w-5 h-5 text-brand-accent" />
-                           <span className="text-2xl font-display font-medium text-white">{selectedProject.specs.cars}</span>
-                        </div>
-                     </div>
-                  </div>
-
-                  {/* Description */}
-                  <div className="space-y-6 mb-12">
-                     <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-accent border-b border-white/10 pb-4">Description</h4>
-                     <p className="text-lg text-gray-400 font-light leading-relaxed">
-                        {(selectedProject as any).description}
-                     </p>
-                  </div>
-
-                  {/* Two Column details */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
-                     <div className="space-y-6">
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-accent border-b border-white/10 pb-4">Features</h4>
-                        <ul className="space-y-3">
-                           {(selectedProject as any).features.map((feat: string) => (
-                             <li key={feat} className="flex items-center gap-3 text-sm text-gray-300">
-                                <div className="w-1.5 h-1.5 rounded-full bg-brand-accent"></div>
-                                {feat}
-                             </li>
-                           ))}
-                        </ul>
-                     </div>
-                     <div className="space-y-6">
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-accent border-b border-white/10 pb-4">Status</h4>
-                        <div className="space-y-4">
-                           <div className="flex items-center gap-3 text-sm text-gray-300">
-                              <CheckCircle2 className="w-4 h-4 text-brand-accent" />
-                              <span>{(selectedProject as any).status}</span>
-                           </div>
-                           <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-brand-accent">
-                              <ShieldCheck className="w-4 h-4" />
-                              <span>Luxury Collection</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               initial={{ opacity: 0, scale: 0.9, y: 20 }}
+               animate={{ opacity: 1, scale: 1, y: 0 }}
+               exit={{ opacity: 0, scale: 0.9, y: 20 }}
+               className="relative w-full max-w-7xl h-full max-h-[90vh] sm:max-h-[85vh] bg-neutral-900 border border-white/10 flex flex-col md:flex-row overflow-hidden shadow-2xl"
+             >
+                <button 
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+                >
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                </button>
+ 
+                {/* Image Side */}
+                <div className="w-full md:w-1/2 h-48 sm:h-64 md:h-full relative overflow-hidden shrink-0">
+                   <img 
+                     src={selectedProject.image} 
+                     alt={selectedProject.title}
+                     className="w-full h-full object-cover"
+                     referrerPolicy="no-referrer"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent md:bg-gradient-to-r" />
+                </div>
+ 
+                {/* Content Side */}
+                <div className="w-full md:w-1/2 h-full overflow-y-auto no-scrollbar p-6 sm:p-16 flex flex-col">
+                   <div className="mb-4">
+                      <span className="bg-brand-accent text-brand-primary px-3 py-1 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest leading-none inline-block mb-3 sm:mb-4">
+                         {selectedProject.category}
+                      </span>
+                      <h2 className="text-3xl sm:text-6xl font-display font-bold text-white uppercase tracking-tight leading-[0.9] mb-4">
+                         {selectedProject.title}
+                      </h2>
+                      <div className="flex items-center gap-2 text-brand-accent text-xs sm:text-sm font-bold tracking-widest mb-6 sm:mb-10">
+                         <MapPin className="w-3.5 h-3.5 sm:w-4 h-4" />
+                         <span>{selectedProject.location}</span>
+                      </div>
+                   </div>
+ 
+                   {/* Specs Box */}
+                   <div className="grid grid-cols-3 gap-1 p-1 bg-white/5 border border-white/10 mb-8 sm:mb-12">
+                      <div className="p-3 sm:p-6 bg-neutral-800/50 flex flex-col items-center justify-center">
+                         <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 sm:mb-4">Beds</span>
+                         <div className="flex items-center gap-1.5 sm:gap-3">
+                            <Home className="w-4 h-4 sm:w-5 sm:h-5 text-brand-accent" />
+                            <span className="text-lg sm:text-2xl font-display font-medium text-white">{selectedProject.specs.beds}</span>
+                         </div>
+                      </div>
+                      <div className="p-3 sm:p-6 bg-neutral-800/50 flex flex-col items-center justify-center">
+                         <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 sm:mb-4">Baths</span>
+                         <div className="flex items-center gap-1.5 sm:gap-3">
+                            <Droplets className="w-4 h-4 sm:w-5 sm:h-5 text-brand-accent" />
+                            <span className="text-lg sm:text-2xl font-display font-medium text-white">{selectedProject.specs.baths}</span>
+                         </div>
+                      </div>
+                      <div className="p-3 sm:p-6 bg-neutral-800/50 flex flex-col items-center justify-center">
+                         <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 sm:mb-4">Cars</span>
+                         <div className="flex items-center gap-1.5 sm:gap-3">
+                            <Grid2X2 className="w-4 h-4 sm:w-5 sm:h-5 text-brand-accent" />
+                            <span className="text-lg sm:text-2xl font-display font-medium text-white">{selectedProject.specs.cars}</span>
+                         </div>
+                      </div>
+                   </div>
+ 
+                   {/* Description */}
+                   <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
+                      <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-brand-accent border-b border-white/10 pb-3 sm:pb-4">Description</h4>
+                      <p className="text-base sm:text-lg text-gray-400 font-light leading-relaxed">
+                         {(selectedProject as any).description}
+                      </p>
+                   </div>
+ 
+                   {/* Two Column details */}
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
+                      <div className="space-y-4 sm:space-y-6">
+                         <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-brand-accent border-b border-white/10 pb-3 sm:pb-4">Features</h4>
+                         <ul className="space-y-2 sm:space-y-3">
+                            {(selectedProject as any).features.map((feat: string) => (
+                              <li key={feat} className="flex items-center gap-3 text-xs sm:text-sm text-gray-300">
+                                 <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-brand-accent"></div>
+                                 {feat}
+                              </li>
+                            ))}
+                         </ul>
+                      </div>
+                      <div className="space-y-4 sm:space-y-6">
+                         <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-brand-accent border-b border-white/10 pb-3 sm:pb-4">Status</h4>
+                         <div className="space-y-3 sm:space-y-4">
+                            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-300">
+                               <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 h-4 text-brand-accent" />
+                               <span>{(selectedProject as any).status}</span>
+                            </div>
+                            <div className="flex items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-brand-accent">
+                               <ShieldCheck className="w-3.5 h-3.5 sm:w-4 h-4" />
+                               <span>Luxury Collection</span>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
             </motion.div>
           </motion.div>
         )}
@@ -1078,8 +1078,8 @@ export default function App() {
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-start">
              <div className="w-full md:w-1/2">
                 <span className="section-label">Contact Us</span>
-                <h2 className="text-4xl md:text-5xl font-light text-brand-primary mb-8 leading-tight">
-                  Let's Build <br /> <span className="font-bold">Something Great.</span>
+                <h2 className="text-3xl sm:text-5xl md:text-7xl font-display font-medium text-brand-primary mb-6 sm:mb-8 leading-tight">
+                  Let's Build <br /> <span className="font-bold whitespace-nowrap sm:whitespace-normal">Something Great.</span>
                 </h2>
                 <p className="text-brand-grey mb-12 text-lg">Ready to start your next project? Contact us today for a consultation and competitive quote.</p>
                 
