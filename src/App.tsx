@@ -96,7 +96,7 @@ const TRADES = [
   {
     title: "Concreting",
     details: "Precision concrete works including architectural driveways, pool surrounds, and structural house slabs.",
-    icon: <Droplets className="w-5 h-5 text-brand-accent" />,
+    icon: <Construction className="w-5 h-5 text-brand-accent" />,
     extendedDetails: "Solid foundations are non-negotiable. Our concreting team handles complex structural house slabs, architectural driveways, and decorative pool surrounds.\n\nWe offer a range of finishes including exposed aggregate, honed concrete, and stamped patterns, all engineered for structural longevity and aesthetic appeal.",
     images: ["https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=800&auto=format&fit=crop"]
   },
@@ -111,7 +111,7 @@ const TRADES = [
     title: "Landscaping",
     details: "Premium landscape design and construction. Creating outdoor living spaces that complement architectural excellence.",
     icon: <Trees className="w-5 h-5 text-brand-accent" />,
-    extendedDetails: "Architecure should harmonize with nature. Our landscaping team creates resort-style outdoor environments that extend the luxury experience outside the home.\n\nFrom structural retaining walls and paving to automated irrigation and luxury planting schemes, we ensure your property's exterior is as impressive as its interior.",
+    extendedDetails: "Architecture should harmonize with nature. Our landscaping team creates resort-style outdoor environments that extend the luxury experience outside the home.\n\nFrom structural retaining walls and paving to automated irrigation and luxury planting schemes, we ensure your property's exterior is as impressive as its interior.",
     images: ["https://images.unsplash.com/photo-1558905619-1af480bc134b?q=80&w=800&auto=format&fit=crop"]
   }
 ];
@@ -325,7 +325,7 @@ export default function App() {
                 initial={{ letterSpacing: "1.5em", opacity: 0 }}
                 animate={{ letterSpacing: "0.4em", opacity: 1 }}
                 transition={{ duration: 1.5, delay: 1 }}
-                className="text-white text-3xl sm:text-6xl font-display font-bold uppercase tracking-[0.4em] text-center"
+                className="text-white text-2xl sm:text-6xl font-display font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-center px-4"
               >
                 Manor Builders
               </motion.div>
@@ -391,43 +391,57 @@ export default function App() {
       </section>
 
       {/* Horizontal Search Navigation - Inspired by Meriton Screenshot */}
-      <nav className="sticky top-0 z-50 bg-white shadow-sm h-24 flex items-stretch">
-        {/* Logo Section */}
-        <div className="bg-brand-primary w-20 sm:w-32 flex items-center justify-center shrink-0 h-full">
-           <div className="w-10 sm:w-12 h-10 sm:h-14 border-l-2 border-r-2 border-brand-accent flex items-center justify-center relative">
-              <div className="absolute top-0 -left-1 w-[calc(100%+8px)] h-[2px] bg-brand-accent"></div>
-              <div className="absolute bottom-0 -left-1 w-[calc(100%+8px)] h-[2px] bg-brand-accent"></div>
-              <span className="text-brand-accent text-3xl sm:text-4xl font-display font-medium tracking-tighter -mb-1">M</span>
-           </div>
-        </div>
+      <nav className="sticky top-0 z-50 bg-white shadow-md flex flex-col lg:flex-row items-stretch min-h-24">
+        <div className="flex items-stretch h-24 lg:h-auto border-b lg:border-b-0 border-gray-100">
+          {/* Logo Section */}
+          <div className="bg-brand-primary w-24 sm:w-32 flex items-center justify-center shrink-0 h-full">
+             <div className="w-12 sm:w-14 h-12 sm:h-16 border-l-2 border-r-2 border-brand-accent flex items-center justify-center relative">
+                <div className="absolute top-0 -left-1 w-[calc(100%+8px)] h-[2px] bg-brand-accent"></div>
+                <div className="absolute bottom-0 -left-1 w-[calc(100%+8px)] h-[2px] bg-brand-accent"></div>
+                <span className="text-brand-accent text-3xl sm:text-5xl font-display font-medium tracking-tighter -mb-1">M</span>
+             </div>
+          </div>
 
-        {/* Search Bar Components */}
-        <div className="flex-grow flex items-stretch divide-x divide-gray-100 overflow-x-auto lg:overflow-visible no-scrollbar">
-           {/* Navigation Links - Desktop Only */}
-           <div className="hidden lg:flex items-center px-8 gap-8">
+          {/* Navigation Links - Desktop Only */}
+          <div className="hidden lg:flex flex-grow items-center px-10 gap-10 divide-x-0 divide-transparent">
               {['About', 'Services', 'Projects', 'Contact'].map((item) => (
                 <button 
                   key={item}
                   onClick={() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-[10px] font-bold uppercase tracking-widest text-brand-primary hover:text-brand-accent transition-colors"
+                  className="text-[11px] font-bold uppercase tracking-widest text-brand-primary hover:text-brand-accent transition-colors relative group"
                 >
                   {item}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
                 </button>
               ))}
-           </div>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="flex lg:hidden flex-grow items-center justify-end px-6">
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-brand-primary"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Search Bar Components */}
+        <div className="flex-grow flex flex-row items-stretch divide-x divide-gray-100 bg-white overflow-x-auto no-scrollbar lg:overflow-visible">
 
            {/* Property Type */}
            <div 
-             className="flex-1 min-w-[140px] sm:min-w-[180px] p-4 sm:p-6 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
+             className="flex-1 min-w-[120px] sm:min-w-[200px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
              onClick={(e) => {
                e.stopPropagation();
                setActiveDropdown(activeDropdown === 'type' ? null : 'type');
              }}
            >
-              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Property Type</span>
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] sm:text-xs font-bold text-brand-primary">{searchParams.type}</span>
-                <ChevronRight className={`w-3 h-3 text-brand-accent transition-transform duration-300 ${activeDropdown === 'type' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
+              <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Property</span>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[10px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.type}</span>
+                <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent transition-transform duration-500 ${activeDropdown === 'type' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
               </div>
 
                <AnimatePresence>
@@ -436,8 +450,8 @@ export default function App() {
                     initial={{ opacity: 0, y: 10, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute top-[calc(100%-1px)] left-0 w-full min-w-[200px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-x border-b border-gray-100 z-[100] py-2"
+                    transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                    className="absolute top-full left-0 w-full min-w-[180px] bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-gray-100 z-[100] py-2 mt-[1px]"
                   >
                     {dropdownOptions.type.map((opt) => (
                       <button 
@@ -447,10 +461,10 @@ export default function App() {
                           setSearchParams({ ...searchParams, type: opt });
                           setActiveDropdown(null);
                         }}
-                        className={`w-full text-left px-6 py-4 text-xs font-bold transition-all duration-300 border-b border-gray-50 last:border-0 ${
+                        className={`w-full text-left px-5 py-3 text-[10px] sm:text-[11px] font-bold transition-all duration-300 border-b border-gray-50 last:border-0 ${
                           searchParams.type === opt 
                             ? 'bg-brand-accent text-brand-primary' 
-                            : 'text-brand-primary hover:bg-gray-50'
+                            : 'text-brand-primary hover:bg-gray-50 hover:pl-7'
                         }`}
                       >
                         {opt}
@@ -463,16 +477,16 @@ export default function App() {
 
            {/* Looking To */}
            <div 
-             className="flex-1 min-w-[140px] sm:min-w-[180px] p-4 sm:p-6 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
+             className="flex-1 min-w-[120px] sm:min-w-[200px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
              onClick={(e) => {
                e.stopPropagation();
                setActiveDropdown(activeDropdown === 'lookingTo' ? null : 'lookingTo');
              }}
            >
-              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">I'm looking to</span>
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] sm:text-xs font-bold text-brand-primary">{searchParams.lookingTo}</span>
-                <ChevronRight className={`w-3 h-3 text-brand-accent transition-transform duration-300 ${activeDropdown === 'lookingTo' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
+              <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Looking To</span>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[10px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.lookingTo}</span>
+                <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent transition-transform duration-500 ${activeDropdown === 'lookingTo' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
               </div>
 
               <AnimatePresence>
@@ -481,8 +495,8 @@ export default function App() {
                     initial={{ opacity: 0, y: 10, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute top-[calc(100%-1px)] left-0 w-full min-w-[200px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-x border-b border-gray-100 z-[100] py-2"
+                    transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                    className="absolute top-full left-0 w-full min-w-[180px] bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-gray-100 z-[100] py-2 mt-[1px]"
                   >
                     {dropdownOptions.lookingTo.map((opt) => (
                       <button 
@@ -492,10 +506,10 @@ export default function App() {
                           setSearchParams({ ...searchParams, lookingTo: opt });
                           setActiveDropdown(null);
                         }}
-                        className={`w-full text-left px-6 py-4 text-xs font-bold transition-all duration-300 border-b border-gray-50 last:border-0 ${
+                        className={`w-full text-left px-5 py-3 text-[10px] sm:text-[11px] font-bold transition-all duration-300 border-b border-gray-50 last:border-0 ${
                           searchParams.lookingTo === opt 
                             ? 'bg-brand-accent text-brand-primary' 
-                            : 'text-brand-primary hover:bg-gray-50'
+                            : 'text-brand-primary hover:bg-gray-50 hover:pl-7'
                         }`}
                       >
                         {opt}
@@ -508,19 +522,19 @@ export default function App() {
 
            {/* Location */}
            <div 
-             className="flex-1 min-w-[160px] sm:min-w-[220px] p-4 sm:p-6 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
+             className="flex-1 min-w-[130px] sm:min-w-[240px] p-3 sm:px-10 flex flex-col justify-center group cursor-pointer hover:bg-gray-50 transition-colors relative"
              onClick={(e) => {
                e.stopPropagation();
                setActiveDropdown(activeDropdown === 'location' ? null : 'location');
              }}
            >
-              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Location</span>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                   <MapPin className="w-3 h-3 text-brand-accent" />
-                   <span className="text-[11px] sm:text-xs font-bold text-brand-primary">{searchParams.location}</span>
+              <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 align-middle">Location</span>
+              <div className="flex items-center justify-between gap-1">
+                <div className="flex items-center gap-1.5 sm:gap-3">
+                   <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent" />
+                   <span className="text-[10px] sm:text-xs font-bold text-brand-primary truncate">{searchParams.location}</span>
                 </div>
-                <ChevronRight className={`w-3 h-3 text-brand-accent transition-transform duration-300 ${activeDropdown === 'location' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
+                <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-accent transition-transform duration-500 ${activeDropdown === 'location' ? 'rotate-[-90deg]' : 'rotate-90'}`} />
               </div>
 
               <AnimatePresence>
@@ -529,8 +543,8 @@ export default function App() {
                     initial={{ opacity: 0, y: 10, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute top-[calc(100%-1px)] left-0 w-full min-w-[200px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-x border-b border-gray-100 z-[100] py-2"
+                    transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                    className="absolute top-full left-0 w-full min-w-[180px] bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-gray-100 z-[100] py-2 mt-[1px]"
                   >
                     {dropdownOptions.location.map((opt) => (
                       <button 
@@ -540,10 +554,10 @@ export default function App() {
                           setSearchParams({ ...searchParams, location: opt });
                           setActiveDropdown(null);
                         }}
-                        className={`w-full text-left px-6 py-4 text-xs font-bold transition-all duration-300 border-b border-gray-50 last:border-0 ${
+                        className={`w-full text-left px-5 py-3 text-[10px] sm:text-[11px] font-bold transition-all duration-300 border-b border-gray-50 last:border-0 ${
                           searchParams.location === opt 
                             ? 'bg-brand-accent text-brand-primary' 
-                            : 'text-brand-primary hover:bg-gray-50'
+                            : 'text-brand-primary hover:bg-gray-50 hover:pl-7'
                         }`}
                       >
                         {opt}
@@ -556,7 +570,7 @@ export default function App() {
         </div>
 
         {/* Search Button Section */}
-        <div className="w-24 sm:w-48 bg-[#F5F2ED] p-2 flex items-center justify-center shrink-0 h-full border-l border-gray-100">
+        <div className="w-20 lg:w-48 bg-[#F5F2ED] p-2 flex items-center justify-center shrink-0 h-auto lg:border-l border-gray-100">
            <button 
              onClick={handleSearch}
              className="w-full h-full border border-brand-accent/30 flex items-center justify-center hover:bg-brand-accent hover:text-brand-primary transition-all duration-500 group"
@@ -567,26 +581,38 @@ export default function App() {
       </nav>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="fixed top-16 left-0 right-0 p-6 bg-white border-b border-gray-200 z-40 md:hidden shadow-xl"
-        >
-          <div className="flex flex-col space-y-4">
-            {['Home', 'Services', 'About', 'Projects', 'Contact'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                className="text-sm font-semibold uppercase tracking-widest text-brand-grey py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-brand-primary z-[60] flex flex-col items-center justify-center p-12 lg:hidden"
+          >
+            <button 
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-8 right-8 text-brand-accent"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <div className="flex flex-col space-y-8 text-center">
+              {['Home', 'Services', 'About', 'Projects', 'Contact'].map((item) => (
+                <button 
+                  key={item} 
+                  onClick={() => {
+                    document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                  }}
+                  className="text-2xl font-display font-bold uppercase tracking-[0.3em] text-white hover:text-brand-accent transition-colors"
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section id="home" className="relative h-[600px] md:h-[500px] bg-gray-900 flex items-center overflow-hidden scroll-mt-24">
@@ -666,9 +692,14 @@ export default function App() {
                 className="group relative h-80 bg-brand-primary overflow-hidden flex flex-col items-center justify-center p-8 text-center transition-all duration-700"
               >
                 {/* Background overlay that moves on hover */}
-                <div className="absolute inset-0 bg-neutral-900 group-hover:scale-110 transition-transform duration-1000 opacity-50"></div>
+                <div className="absolute inset-0 bg-neutral-900 transition-all duration-700 opacity-60 group-hover:opacity-40"></div>
                 {(trade as any).images?.[0] && (
-                  <img src={(trade as any).images[0]} alt={trade.title} className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700" />
+                  <img 
+                    src={(trade as any).images[0]} 
+                    alt={trade.title} 
+                    className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 sm:opacity-30 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-1000 group-hover:scale-110" 
+                    referrerPolicy="no-referrer"
+                  />
                 )}
                 
                 <div className="relative z-10 flex flex-col items-center gap-6">
@@ -837,9 +868,9 @@ export default function App() {
             <span className="text-brand-accent uppercase tracking-[0.4em] text-[10px] sm:text-xs font-bold mb-6 block">Portfolio</span>
             <button 
               onClick={() => setSelectedCategory('ALL')}
-              className="text-left group"
+              className="text-left group w-full"
             >
-              <h2 className="text-6xl sm:text-8xl md:text-[120px] font-display font-black text-white uppercase tracking-tighter leading-[0.85] group-hover:text-brand-accent transition-colors">
+              <h2 className="text-5xl sm:text-8xl md:text-[120px] font-display font-black text-white uppercase tracking-tighter leading-[0.85] group-hover:text-brand-accent transition-colors break-words">
                 Modern <br /> Architecture
               </h2>
             </button>
